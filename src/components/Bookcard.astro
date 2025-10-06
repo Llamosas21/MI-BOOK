@@ -1,0 +1,15 @@
+---
+// Props: { image: string, title: string, author: string, publisher: string }
+---
+<div class="Bookcard">
+  <img 
+    src={Astro.props.image || "/placeholder.svg"}
+    alt={Astro.props.title} 
+    class="Bookcard-image"
+  />
+  <div class="Bookcard-content">
+    <h3 class="Bookcard-title">{Astro.props.title}</h3>
+    <p class="Bookcard-author">{Astro.props.author}</p>
+    <p class="Bookcard-publisher">{Astro.props.publisher}</p>
+  </div>
+</div>

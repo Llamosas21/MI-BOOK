@@ -1,0 +1,25 @@
+---
+import NavBar from '../components/NavBar.astro';
+import SideMenu from '../components/SideMenu.astro';
+import Layout from '../layouts/Layout.astro';
+import Bookcard from '../components/Bookcard.astro';
+import books from '../data/books.json';
+---
+
+<Layout>
+  <div class="dashboard-content">
+    <NavBar />
+    <SideMenu />
+    <div class="dashboard-grid">
+      {books.map(book => (
+        <a class="detalle-link" href={`/detalles/${book.id}`}>
+          <Bookcard 
+            image={book.image} 
+            title={book.title} 
+            author={book.author} 
+          />
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

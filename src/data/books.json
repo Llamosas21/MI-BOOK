@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "title": "La metamorfosis",
+    "author": "Franz Kafka",
+    "epub": "/books/1/La metamorfosis - Franz Kafka.epub",
+    "image": "/books/1/Lametamorfosis.webp"
+  },
+  {
+    "id": 2,
+    "title": "Orgullo y Prejuicio",
+    "author": "Jane Austen",
+    "epub": "/books/2/Orgullo y prejuicio - Jane Austen.epub",
+    "image": "/books/2/Orgulloyprejuicio.png"
+  },
+  {
+    "id": 3,
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "epub": "/books/3/Moby Dick - Herman Melville.epub",
+    "image": "/books/3/MobyDick.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Cumbres Borrascosas",
+    "author": "Emily Brontë",
+    "epub": "/books/4/Cumbres Borrascosas - Emily Brontë.epub",
+    "image": "/books/4/Cumbresborrascosas.png"
+  },
+  {
+    "id": 5,
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "epub": "/books/5/Jane Eyre - Charlotte Bronte.epub",
+    "image": "/books/5/JaneEyre.png"
+  },
+  {
+    "id": 6,
+    "title": "Alicia en el País de las Maravillas",
+    "author": "Lewis Carroll",
+    "epub": "/books/6/Alicia en el pais de las maravillas - Lewis Carroll.epub",
+    "image": "/books/6/Aliciaenelpaisdelasmaravillas.png"
+  },
+  {
+    "id": 7,
+    "title": "Guerra y Paz",
+    "author": "León Tolstói",
+    "epub": "/books/7/Guerra y paz - Lev Nikolaievich Tolstoi.epub",
+    "image": "/books/7/GuerayPaz.png"
+  },
+  {
+    "id": 8,
+    "title": "Ana Karenina",
+    "author": "León Tolstói",
+    "epub": "/books/8/Ana Karenina - Leon Tolstoi.epub",
+    "image": "/books/8/AnaKarenina.png"
+  },
+  {
+    "id": 9,
+    "title": "Crimen y castigo",
+    "author": "Fiódor Dostoievski",
+    "epub": "/books/9/Crimen y castigo - Fiodor Dostoyevski.epub",
+    "image": "/books/9/CrimenyCastigo.png"
+  },
+  {
+    "id": 10,
+    "title": "El retrato de Dorian Gray",
+    "author": "Oscar Wilde",
+    "epub": "/books/10/El retrato de Dorian Gray - Oscar Wilde.epub",
+    "image": "/books/10/DorianGray.png"
+  },
+  {
+    "id": 11,
+    "title": "Don Quijote de la Mancha",
+    "author": "Miguel de Cervantes",
+    "epub": "/books/11/Don Quijote de la Mancha - Miguel de Cervantes.epub",
+    "image": "/books/11/DonQuijote.png"
+  },
+  {
+    "id": 12,
+    "title": "Drácula",
+    "author": "Bram Stoker",
+    "epub": "/books/12/Dracula - Bram Stoker.epub",
+    "image": "/books/12/Dracula.png"
+  },
+  {
+    "id": 13,
+    "title": "Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "epub": "/books/13/Sherlock Holmes - Arthur Conan Doyle.epub",
+    "image": "/books/13/SherlockEstudio.png"
+  },
+  {
+    "id": 14,
+    "title": "El jardín secreto",
+    "author": "Frances Hodgson Burnett",
+    "epub": "/books/14/El jardin secreto - Frances Hodgson Burnett.epub",
+    "image": "/books/14/JardinSecreto.png"
+  },
+  {
+    "id": 15,
+    "title": "El fantasma de la ópera",
+    "author": "Gaston Leroux",
+    "epub": "/books/15/El fantasma de la opera - Gaston Leroux.epub",
+    "image": "/books/15/FantasmaOpera.png"
+  },
+  {
+    "id": 16,
+    "title": "La máquina del tiempo",
+    "author": "H. G. Wells",
+    "epub": "/books/16/La maquina del tiempo - H. G. Wells.epub",
+    "image": "/books/16/MaquinaTiempo.png"
+  },
+  {
+    "id": 17,
+    "title": "La isla del doctor Moreau",
+    "author": "H. G. Wells",
+    "epub": "/books/17/La isla del Doctor Moreau - H. G. Wells.epub",
+    "image": "/books/17/IslaDoctorMoreau.png"
+  },
+  {
+    "id": 18,
+    "title": "Grandes esperanzas",
+    "author": "Charles Dickens",
+    "epub": "/books/18/Grandes esperanzas - Charles Dickens.epub",
+    "image": "/books/18/GrandesEsperanzas.png"
+  },
+  {
+    "id": 19,
+    "title": "Oliver Twist",
+    "author": "Charles Dickens",
+    "epub": "/books/19/Oliver Twist  - Charles Dickens.epub",
+    "image": "/books/19/OliverTwist.png"
+  },
+  {
+    "id": 20,
+    "title": "Un cuento de Navidad",
+    "author": "Charles Dickens",
+    "epub": "/books/20/Cuentos de Navidad - Charles Dickens.epub",
+    "image": "/books/20/CuentoNavidad.png"
+  },
+  {
+    "id": 21,
+    "title": "Madame Bovary",
+    "author": "Gustave Flaubert",
+    "epub": "/books/21/Madame Bovary - Gustave Flaubert.epub",
+    "image": "/books/21/MadameBovary.png"
+  },
+  {
+    "id": 22,
+    "title": "El proceso",
+    "author": "Franz Kafka",
+    "epub": "/books/22/El proceso - Franz Kafka.epub",
+    "image": "/books/22/Elproceso.png"
+  },
+  {
+    "id": 23,
+    "title": "El idiota",
+    "author": "Fiódor Dostoievski",
+    "epub": "/books/23/El idiota - Fiodor Mijailovich Dostoyevski.epub",
+    "image": "/books/23/ElIdiota.png"
+  },
+  {
+    "id": 24,
+    "title": "Las aventuras de Tom Sawyer",
+    "author": "Mark Twain",
+    "epub": "/books/24/Las aventuras de Tom Sawyer - Mark Twain.epub",
+    "image": "/books/24/TomSawyer.png"
+  },
+  {
+    "id": 25,
+    "title": "Viaje al centro de la Tierra",
+    "author": "Julio Verne",
+    "epub": "/books/25/Viaje al centro de la Tierra - Julio Verne.epub",
+    "image": "/books/25/ViajeCentroTierra.png"
+  }
+]

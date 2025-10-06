@@ -1,0 +1,116 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 80px; /* Agregando espacio debajo del navbar */
+}
+
+.Bookcard {
+  background-color: hsla(0, 8%, 41%, 0.396);
+  border-radius: 15px; /* Sigue siendo en px */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center; /* Centrar contenido */
+}
+
+.Bookcard:hover {
+  transform: translateY(-5px);
+}
+
+.Bookcard-image {
+  width: 100%;
+  height: 280px; 
+  object-fit: fill; 
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+
+
+.Bookcard-content {
+  padding: 16px;  
+}
+
+.detalle-link{
+  text-decoration: none;
+}
+
+.Bookcard-title {
+  font-size: 20px; /* 1.25rem ≈ 20px */
+  margin: 0 0 8px; /* 0.5rem ≈ 8px */
+  color: #333;
+}
+
+.Bookcard-author,
+.Bookcard-publisher {
+  font-size: 14px; /* 0.875rem ≈ 14px */
+  color: #666;
+  margin: 0;
+}
+
+/* Media queries para versiones móviles */
+@media screen and (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .Bookcard {
+    aspect-ratio: 1 / 1; /* Hace que la tarjeta sea cuadrada */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Bookcard-image {
+    height: 80%; /* Ajusta la proporción de la imagen */
+    width: 100%;
+    
+  }
+
+  .Bookcard-content {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Bookcard-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .Bookcard-author,
+  .Bookcard-publisher {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.6rem;
+    padding: 0.6rem;
+  }
+
+  .Bookcard-image {
+    height: 65%; /* Un poco más de espacio para la imagen en móviles pequeños */
+  }
+
+  .Bookcard-content {
+    padding: 8px;
+  }
+
+  .Bookcard-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .Bookcard-author,
+  .Bookcard-publisher {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import books from '../../data/books.json';
+
+export function getStaticPaths() {
+    return books.map(book => ({
+        params: { slug: String(book.id) },
+        props: { book },
+    }));
+}
+
+const { book } = Astro.props;
+---
+
+<Layout title={`${book.title} - MI-BOOK`}>
+    <!-- Scripts necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" is:inline></script>
+    <script src="/epubDetails.js" is:inline></script>
+    
+    <main class="container">
+        <div class="book-details">
+            <div class="book-header">
+                <h1>{book.title}</h1>
+                <div class="book-meta">
+                    <p class="author">
+                        {book.author}
+                    </p>
+                    
+                    <p class="language" id="languageInfo">
+                        <span class="loading-shimmer">Cargando idioma...</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="book-content">
+                <div class="book-description">
+                    <h2>Sinopsis</h2>
+                    <div id="description" class="description-text loading-shimmer">
+                        Cargando sinopsis...
+                    </div>
+                </div>
+                
+                <div class="book-info">
+                    <div class="info-item" id="dateInfo">
+                        <span>Fecha de publicación</span>
+                        <strong class="loading-shimmer">Cargando fecha...</strong>
+                    </div>
+                    <div class="info-item" id="rightsInfo">
+                        <span>Derechos de autor</span>
+                        <strong class="loading-shimmer">Dominio público</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-actions">
+                <a href={`/lectura/${book.id}`} class="back-button">
+                    Leer libro
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script define:vars={{ bookPath: book.epub }}>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const details = await extractEpubDetails(bookPath);
+                
+                // Remover clases de loading
+                document.querySelectorAll('.loading-shimmer').forEach(el => {
+                    el.classList.remove('loading-shimmer');
+                });
+                
+                // Actualizar la información
+                if (details.description) {
+                    document.getElementById('description').textContent = details.description;
+                }
+                if (details.publisher) {
+                    document.getElementById('publisherInfo').textContent = details.publisher;
+                }
+                if (details.language) {
+                    const languages = {
+                        'es': 'Español',
+                        'en': 'Inglés',
+                        'fr': 'Francés',
+                        'de': 'Alemán',
+                        'it': 'Italiano',
+                        'pt': 'Portugués'
+                    };
+                    document.getElementById('languageInfo').textContent = 
+                        languages[details.language] || details.language;
+                }
+                if (details.date) {
+                    const date = new Date(details.date);
+                    document.getElementById('dateInfo').innerHTML = `
+                        <span>Fecha de publicación</span>
+                        <strong>${date.toLocaleDateString('es', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}</strong>
+                    `;
+                }
+                if (details.rights) {
+                    document.getElementById('rightsInfo').innerHTML = `
+                        <span>Derechos de autor</span>
+                        <strong>${details.rights}</strong>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error cargando detalles:', error);
+                document.getElementById('description').textContent = 
+                    'No se pudo cargar la información del libro.';
+            }
+        });
+    </script>
+</Layout>
+
+ 

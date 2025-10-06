@@ -1,0 +1,6 @@
+/* Archivo principal para importar estilos */
+@import './general.css';
+@import './navbar.css';
+@import './sidemenu.css';
+@import './BookCard.css';
+@import './bookDetails.css'

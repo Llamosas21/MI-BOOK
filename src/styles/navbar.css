@@ -1,0 +1,148 @@
+@font-face {
+  font-family: 'Galiken';
+  src: url('/Galiken 400.otf') format('opentype');
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  background-color: #fff;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+
+}
+
+.navbar-brand {
+  margin-left: 10px; /* Ajuste del margen izquierdo */
+}
+
+.menu-icon {
+  width: 80px; /* Tamaño por defecto para desktop */
+  justify-content: center;
+  transition: width 0.3s ease; /* Transición suave para el cambio de tamaño */
+}
+
+.menu-toggle {
+  margin-right: 10px; /* Espacio entre el ícono y el título */
+  margin-left: 0; /* Reset del margen izquierdo */
+}
+
+/* Estilos para enlaces en la barra de navegación */
+.navbar-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0); /* Asegurar que el texto sea visible */
+  margin-left: -15px;
+  font-family: 'Galiken', sans-serif;
+  font-size: 20px; /* Ajusta este tamaño según lo necesites */
+  font-weight: bold;
+}
+
+.navbar-link:hover {
+  text-decoration: none; /* Añadir un efecto visual al pasar el cursor */
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ccc0c0;
+  border-radius: 25px;
+  padding: 5px 15px;
+  width: 300px;
+  border: 2px solid #b1a9a9ad;
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+  color: #333;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.search-button:hover {
+  color: #333;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media screen and (max-width: 1024px) {
+  .search-container {
+    width: 250px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 80px;
+    padding-left: 10px;
+  }
+
+  .menu-icon {
+    width: 60px;
+  }
+
+  .navbar-link {
+    font-size: 16px;
+  }
+
+  .search-container {
+    width: 200px;
+    right: 25px;
+    padding: 3px 10px;
+    left: auto;
+  }
+
+  .search-input {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .search-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-container {
+    width: 150px;
+    right: 15px;
+    padding: 3px 8px;
+  }
+  
+  .search-input {
+    font-size: 11px;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,284 @@
+:root {
+  --page-width: 800px;
+  --page-height: 800px;
+  --zoom-level: 0.9;
+  --text-primary: #2d363f;
+  --bg-primary: #ecf0f1;
+  --shadow-soft: 0 8px 30px rgba(0,0,0,0.12);
+  --controls-bg: #ffffff;
+  --viewer-bg: #ffffff;
+  --page-bg: #ffffff;
+  --counter-bg: #832929;
+  --counter-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #e1e1e1;
+    --bg-primary: #1a1a1a;
+    --controls-bg: #2d2d2d;
+    --viewer-bg: #242424;
+    --page-bg: #2d2d2d;
+    --shadow-soft: 0 8px 30px rgba(36, 34, 34, 0.3);
+    --counter-bg: #832929;
+    --counter-text: #ffffff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+.body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.8;
+  background-color: var(--bg-primary);
+  background-image: linear-gradient(to bottom right, 
+    var(--bg-primary),
+    color-mix(in srgb, var(--bg-primary) 85%, white)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.controls {
+  position: sticky;
+  top: 20px;
+  width: calc(var(--page-width) * var(--zoom-level) + 40px);
+  height: 100%;
+  background: var(--controls-bg);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+#viewer {
+  position: relative;
+  width: calc(var(--page-width) * var(--zoom-level));
+  height: calc(var(--page-height) * var(--zoom-level));
+  margin: 15px auto;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transform-origin: top center;
+  border-radius: 12px;
+  background: var(--viewer-bg);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  perspective: 1000px;
+  background: var(--page-bg);
+}
+
+.page {
+  width: calc(var(--page-width) * var(--zoom-level));
+  height: calc(var(--page-height) * var(--zoom-level));
+  padding: 32px 48px;
+  padding-bottom: calc(32px + 4rem);
+  overflow-y: auto;  
+  font-size: calc(18px * var(--zoom-level));
+  line-height: 1.8;
+  color: var(--text-primary);
+  letter-spacing: 0.015em;
+  position: relative;
+  background: var(--page-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  flex: 0 0 auto;
+  margin: auto;
+}
+/* Scroll estético dentro de .page */
+.page {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #83292955 transparent; /* color de thumb y track transparente */
+  position: relative;
+}
+
+/* Scrollbar para Chrome, Edge y Safari */
+.page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #b53636, #832929); 
+  border-radius: 6px;
+}
+
+.page::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d25050, #a53939); 
+}
+
+/* Indicador de scroll animado */
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #d25050 0%, #681818 100%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: bounce-scroll 1.2s infinite ease-in-out;
+}
+
+/* Animación de scroll */
+@keyframes bounce-scroll {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Opcional: modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .page::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #e06c6c, #832929);
+  }
+  .page::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ff7b7b, #a53939);
+  }
+
+  .page::after {
+    background: radial-gradient(circle, #ff7b7b 0%, #832929 80%, transparent 100%);
+    opacity: 0.5;
+  }
+}
+
+
+.page-number {
+  position: fixed;
+  bottom: 2rem;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.95rem;
+  color: var(--counter-text);
+  background: var(--counter-bg);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  z-index: 900;
+  backdrop-filter: blur(5px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mobile improvements: tablets y móviles hasta 768px */
+@media (max-width: 768px) {
+  :root { --zoom-level: 1; }
+
+  body { padding: 10px; }
+
+  #viewer {
+    width: 100%;             /* ocupa todo el ancho disponible */
+    max-width: 100%;         /* evita que sea demasiado ancho */
+    height: 75vh;            /* altura más cómoda */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .pages { height: 100%; }
+
+  .page {
+    width: 100%;             /* ocupa todo el ancho del viewer */
+    max-width: 100%;
+    padding: 18px 16px;
+    padding-bottom: calc(18px + 3rem);
+    height: 100%;
+    font-size: 16px;
+    line-height: 1.7;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    overflow-y: auto;
+    word-break: break-word;  /* evita que palabras largas desborden */
+  }
+
+  .page::-webkit-scrollbar { width: 0; }
+  .page { scrollbar-width: none; -ms-overflow-style: none; }
+}
+
+/* Very small devices: hasta 480px */
+@media (max-width: 480px) {
+  body { padding: 6px; }
+
+  #viewer { width: 100%; height: 70vh; border-radius: 6px; }
+
+  .page {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 12px;
+    padding-bottom: calc(14px + 4rem);
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word; /* evita líneas demasiado largas */
+  }
+
+  .page-number {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    bottom: 0.8rem;
+  }
+}
+
+
+/* Animación de scroll */
+@keyframes bounce-scroll {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.bounce-scroll { animation: bounce-scroll 0.5s ease-in-out; position: relative; }
+
+/* Indicador de scroll */
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(44, 62, 80, 0.2));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.bounce-scroll::after { opacity: 1; }
